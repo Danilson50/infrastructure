@@ -139,12 +139,15 @@ kubectl get svc
 ***Acessando os serviços publicados***
 
 Para acessar a aplicação webapp Hello acesse o endereço:
+
 http://IpDeAcesso/ (App Hello)
 
 Para acessar o Prometheus acesse o endereço:
+
 http://IpDeAcesso:30000/ (Prometheus)
 
 Para acessar o Grafana acesse o endereço:
+
 http://IpDeAcesso:32000/ (Grafana)
 
 Usuario: admin
