@@ -43,9 +43,11 @@ Default output format: json
 **Download Terraform** 
 ```sh
 curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip
-
+```
+```sh
 unzip /tmp/terraform.zip
-
+```
+```sh
 chmod +x terraform && mv terraform /usr/local/bin/
 ```
 
@@ -84,11 +86,11 @@ aws eks update-kubeconfig --name getting-started-eks --region us-east-1
 **Instalar kubectl no Docker** 
 ```sh
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-
-
+```
+```sh
 chmod +x ./kubectl
-
-
+```
+```sh
 mv ./kubectl /usr/local/bin/kubectl
 ```
 
@@ -107,11 +109,14 @@ kubectl apply -f .\webapp\
 ***Executando o Monitoramento***
 ```sh
 kubectl apply -f .\monitoramento\kube-state-metrics\
-
+```
+```sh
 kubectl create namespace monitoring
-
+```
+```sh
 kubectl create -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
-
+```
+```sh
 kubectl create -f .\monitoramento\k8s-grafana\ --namespace=monitoring
 ```
 
@@ -119,11 +124,14 @@ kubectl create -f .\monitoramento\k8s-grafana\ --namespace=monitoring
 ***Comandos uteis para verificar os serviços***
 ```sh
 kubectl get nodes
-
+```
+```sh
 kubectl get deploy
-
+```
+```sh
 kubectl get pods
-
+```
+```sh
 kubectl get svc
 ```
 
@@ -161,9 +169,11 @@ kubectl delete -f .\webapp\
 ***Apagar projeto webapp***
 ```sh
 kubectl delete -f .\monitoramento\kube-state-metrics\
-
+```
+```sh
 kubectl delete -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
-
+```
+```sh
 kubectl delete -f .\monitoramento\k8s-grafana\ --namespace=monitoring
 ```
 
@@ -171,6 +181,7 @@ kubectl delete -f .\monitoramento\k8s-grafana\ --namespace=monitoring
 # Apagar infraestrutura criada pelo Terraform
 ```sh
 cd kub/
-
+```
+```sh
 terraform destroy
  ```
