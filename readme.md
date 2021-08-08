@@ -10,6 +10,7 @@ Podemos ver os seguintes arquivos nas pastas:
 
 
 
+
 # Iniciando Docker com Amazon CLI
 
  **Iniciando Amazon CLI**
@@ -19,6 +20,7 @@ Podemos ver os seguintes arquivos nas pastas:
    **Ferramentas uteis** 
 
  yum install -y jq gzip nano tar git unzip wget
+
 
 
 # Login da conta Amazon
@@ -33,6 +35,7 @@ AWS Secret Access Key [None]:***sua senha***
 Default region name: us-east-1
 
 Default output format: json
+
 
 
 # Instalando Terraform no Docker
@@ -50,6 +53,9 @@ chmod +x terraform && mv terraform /usr/local/bin/
 
 terraform
 
+
+
+
 # Criando o Amazon Kubernetes com Terraform
 
 ***Acessar a pasta com os arquivos .tf***
@@ -65,12 +71,15 @@ terraform plan
 terraform apply
 
 
+
+
 # Deployed aplicação Kubernetes
 
 
 **Pegar Configurações EKS** 
 
 aws eks update-kubeconfig --name getting-started-eks --region us-east-1
+
 
 **Instalar kubectl no Docker** 
 
@@ -83,6 +92,7 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 
 
+
 ***Voltando para a Raiz para executar os arquivos do WebApp e Monitoramento***
 
 cd ..
@@ -90,6 +100,7 @@ cd ..
 ***Executando o webapp***
 
 kubectl apply -f .\webapp\
+
 
 
 ***Executando o Monitoramento***
@@ -103,6 +114,7 @@ kubectl create -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
 kubectl create -f .\monitoramento\k8s-grafana\ --namespace=monitoring
 
 
+
 ***Comandos uteis para verificar os serviços***
 
 kubectl get nodes
@@ -112,6 +124,8 @@ kubectl get deploy
 kubectl get pods
 
 kubectl get svc
+
+
 
 ***Acessando os serviços publicados***
 
@@ -134,9 +148,13 @@ Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/14205
 
 ID: 14205
 
+
+
+
 ***Apagar projeto webapp***
 
 kubectl delete -f .\webapp\
+
 
 
 ***Apagar projeto webapp***
@@ -146,6 +164,7 @@ kubectl delete -f .\monitoramento\kube-state-metrics\
 kubectl delete -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
 
 kubectl delete -f .\monitoramento\k8s-grafana\ --namespace=monitoring
+
 
 
 # Apagar infraestrutura criada pelo Terraform
