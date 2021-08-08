@@ -13,6 +13,8 @@ Podemos ver os seguintes arquivos nas pastas:
 
 # Iniciando Docker com Amazon CLI
 
+- Se for utilizar o kubernetes em ambiente local ir para o item `Executando o webapp`
+
  **Iniciando Amazon CLI**
 ```sh
   docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.0.43
