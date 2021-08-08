@@ -14,13 +14,13 @@ Podemos ver os seguintes arquivos nas pastas:
 # Iniciando Docker com Amazon CLI
 
  **Iniciando Amazon CLI**
-
+```sh
   docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.0.43
-
+```
    **Ferramentas uteis** 
-
+```sh
  yum install -y jq gzip nano tar git unzip wget
-
+```
 
 
 # Login da conta Amazon
@@ -41,27 +41,27 @@ Default output format: json
 # Instalando Terraform no Docker
 
 **Download Terraform** 
-
+```sh
 curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip
 
 unzip /tmp/terraform.zip
 
 chmod +x terraform && mv terraform /usr/local/bin/
-
+```
 
 ***Testar Terraform***
-
+```sh
 terraform
-
+```
 
 
 
 # Criando o Amazon Kubernetes com Terraform
 
 ***Acessar a pasta com os arquivos .tf***
-
+```sh
 cd k8s/
-
+```
 ***Iniciar, planejar e aplicar o Terraform***
 
 terraform init
@@ -77,12 +77,12 @@ terraform apply
 
 
 **Pegar Configurações EKS** 
-
+```sh
 aws eks update-kubeconfig --name getting-started-eks --region us-east-1
-
+```
 
 **Instalar kubectl no Docker** 
-
+```sh
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
 
@@ -90,21 +90,22 @@ chmod +x ./kubectl
 
 
 mv ./kubectl /usr/local/bin/kubectl
-
+```
 
 
 ***Voltando para a Raiz para executar os arquivos do WebApp e Monitoramento***
-
+```sh
 cd ..
+```
 
 ***Executando o webapp***
-
+```sh
 kubectl apply -f .\webapp\
-
+```
 
 
 ***Executando o Monitoramento***
-
+```sh
 kubectl apply -f .\monitoramento\kube-state-metrics\
 
 kubectl create namespace monitoring
@@ -112,11 +113,11 @@ kubectl create namespace monitoring
 kubectl create -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
 
 kubectl create -f .\monitoramento\k8s-grafana\ --namespace=monitoring
-
+```
 
 
 ***Comandos uteis para verificar os serviços***
-
+```sh
 kubectl get nodes
 
 kubectl get deploy
@@ -124,7 +125,7 @@ kubectl get deploy
 kubectl get pods
 
 kubectl get svc
-
+```
 
 
 ***Acessando os serviços publicados***
@@ -152,23 +153,24 @@ ID: 14205
 
 
 ***Apagar projeto webapp***
-
+```sh
 kubectl delete -f .\webapp\
-
+```
 
 
 ***Apagar projeto webapp***
-
+```sh
 kubectl delete -f .\monitoramento\kube-state-metrics\
 
 kubectl delete -f .\monitoramento\k8s-prometheus\ --namespace=monitoring
 
 kubectl delete -f .\monitoramento\k8s-grafana\ --namespace=monitoring
-
+```
 
 
 # Apagar infraestrutura criada pelo Terraform
+```sh
 cd kub/
 
 terraform destroy
- 
+ ```
