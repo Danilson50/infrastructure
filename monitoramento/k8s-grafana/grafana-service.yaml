@@ -4,12 +4,15 @@ metadata:
   name: grafana
   namespace: monitoring
   annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: nlb
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
       prometheus.io/scrape: 'true'
       prometheus.io/port:   '3000'
+      
 spec:
   selector: 
     app: grafana
-  type: NodePort  
+  type: LoadBalancer  
   ports:
     - port: 3000
       targetPort: 3000

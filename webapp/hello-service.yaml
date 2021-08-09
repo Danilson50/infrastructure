@@ -2,6 +2,9 @@ kind: Service
 apiVersion: v1 
 metadata: 
   name: hello-service 
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
 spec: 
   selector: 
     app: hello 
@@ -10,4 +13,4 @@ spec:
     port: 80 
     targetPort: 80 
     nodePort: 31000 
-  type: NodePort 
+  type: LoadBalancer
